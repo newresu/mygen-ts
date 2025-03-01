@@ -3,10 +3,14 @@ import { execSync } from 'node:child_process';
 import { cpSync } from 'node:fs';
 import { writeFileSync } from 'node:fs';
 import { readdirSync } from 'node:fs';
+
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import ejs from 'ejs';
 
 import { input, confirm } from '@inquirer/prompts';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 async function prompting() {
   const answers = {};
   const prompts = [
