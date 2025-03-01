@@ -13,26 +13,15 @@ npm i mygen-ts -g
 Scaffold looks like this:
 
 ```bash
-.
-├── .config
-│   ├── .eslintrc.json
-│   ├── .prettierrc.json
-│   ├── tsconfig.cjs.json
-│   ├── tsconfig.esm.json
-│   ├── tsconfig.json
-│   └── vite.config.ts
-├── .github
-│   └── workflows
-│       ├── nodejs.yml
-│       ├── release.yml
-│       └── typedoc.yml
-├── .gitignore
-├── LICENSE
-├── package.json
+├── LICENSE  # MIT
+├── node_modules # installs dev deps
+├── package.json # populated
 ├── README.md
-└── src
-    ├── index.test.ts
-    └── index.ts
+├── src
+├── tsconfig.cjs.json
+├── tsconfig.esm.json
+├── tsconfig.json
+└── vitest.config.ts
 ```
 
 ---

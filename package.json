@@ -1,6 +1,13 @@
 {
   "name": "mygen-ts",
   "version": "0.0.1",
+  "bin": {
+    "mygen-ts": "./src/index.js"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "description": "Simple scaffolding for Typescript project.",
   "repository": {
     "type": "git",
@@ -10,9 +17,14 @@
     "simple generator"
   ],
   "scripts": {
-    "prettier": "prettier --check src .prettierrc.json"
+    "prettier": "prettier --check src",
+    "prettier-write": "prettier --write src",
+    "eslint": "eslint src",
+    "eslint-fix": "npm run eslint -- --fix",
+    "test-only": "npm run eslint && npm run prettier",
+    "clean": "rimraf lib lib-esm"
   },
-  "author": "Santigo Miranda",
+  "author": "Santiago Miranda",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/newseru/mygen-ts/issues"
@@ -20,14 +32,20 @@
   "homepage": "https://github.com/newseru/mygen-ts#readme",
   "dependencies": {
     "@inquirer/prompts": "^7.3.2",
-    "camelcase": "^8.0.0"
+    "camelcase": "^8.0.0",
+    "ejs": "^3.1.10"
   },
-  "type": "module",
   "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/ejs": "^3.1.5",
+    "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^22.13.8",
     "eslint": "^9.21.0",
     "prettier": "^3.5.2",
     "rimraf": "^6.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.25.0",
     "vitest": "^3.0.7"
   }
 }

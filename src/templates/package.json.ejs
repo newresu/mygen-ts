@@ -1,12 +1,12 @@
 {
-  "name": "<%= npmName %>",
+  "name": "<%= projectName %>",
   "version": "0.0.0",
   "description": "<%= description %>",
   "main": "./lib/index.js",<% if (notOnlyNode) { %>
   "module": "./lib-esm/index.js",<% } %>
   "types": "./lib/index.d.ts",
   "keywords": [],
-  "author": "<%= userName %>",
+  "author": "<%= authorName %>",
   "license": "MIT",
   "files": [
     "src",
@@ -14,13 +14,13 @@
     "lib-esm"<% } %>
   ],
   "scripts": {
-    "prettier": "prettier --check src .prettierrc.json",
-    "eslint": "eslint src --cache .eslintrc.json",
-    "check-types": "tsc --noEmit tsconfig.json",
-    "test-only": "vitest --run --coverage vitest.config.ts",
+    "prettier": "prettier --check src",
+    "eslint": "eslint src --cache",
+    "check-types": "tsc --noEmit",
+    "test-only": "vitest --run --coverage",
     "test": "npm run test-only && npm run eslint && npm run prettier && npm run check-types",
     "eslint-fix": "npm run eslint -- --fix",
-    "prettier-write": "prettier --write src .prettierrc.json",
+    "prettier-write": "prettier --write src",
     "tsc": "npm run clean && npm run tsc-cjs<% if (notOnlyNode) { %> && npm run tsc-esm<% } %>",
     "tsc-cjs": "tsc --project tsconfig.cjs.json"<% if (notOnlyNode) { %>,
     "tsc-esm": "tsc --project tsconfig.esm.json"<% } %>,
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<%= org %>/<%= name %>.git"
+    "url": "git+https://github.com/<%= userName %>/<%= projectName %>.git"
   },
   "bugs": {
-    "url": "https://github.com/<%= org %>/<%= name %>/issues"
+    "url": "https://github.com/<%= userName %>/<%= projectName %>/issues"
   },
-  "homepage": "https://github.com/<%= org %>/<%= name %>#readme"
+  "homepage": "https://github.com/<%= userName %>/<%= projectName %>#readme"
 }
