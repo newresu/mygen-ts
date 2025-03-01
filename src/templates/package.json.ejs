@@ -1,0 +1,37 @@
+{
+  "name": "<%= npmName %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  "main": "./lib/index.js",<% if (notOnlyNode) { %>
+  "module": "./lib-esm/index.js",<% } %>
+  "types": "./lib/index.d.ts",
+  "keywords": [],
+  "author": "<%= userName %>",
+  "license": "MIT",
+  "files": [
+    "src",
+    "lib"<% if (notOnlyNode) { %>,
+    "lib-esm"<% } %>
+  ],
+  "scripts": {
+    "prettier": "prettier --check src .prettierrc.json",
+    "eslint": "eslint src --cache .eslintrc.json",
+    "check-types": "tsc --noEmit tsconfig.json",
+    "test-only": "vitest --run --coverage vitest.config.ts",
+    "test": "npm run test-only && npm run eslint && npm run prettier && npm run check-types",
+    "eslint-fix": "npm run eslint -- --fix",
+    "prettier-write": "prettier --write src .prettierrc.json",
+    "tsc": "npm run clean && npm run tsc-cjs<% if (notOnlyNode) { %> && npm run tsc-esm<% } %>",
+    "tsc-cjs": "tsc --project tsconfig.cjs.json"<% if (notOnlyNode) { %>,
+    "tsc-esm": "tsc --project tsconfig.esm.json"<% } %>,
+    "clean": "rimraf lib<% if (notOnlyNode) { %> lib-esm<% } %>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<%= org %>/<%= name %>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<%= org %>/<%= name %>/issues"
+  },
+  "homepage": "https://github.com/<%= org %>/<%= name %>#readme"
+}

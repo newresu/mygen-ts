@@ -1,0 +1,7 @@
+coverage
+images
+node_modules
+History.md
+CHANGELOG.md
+docs
+*.cff
